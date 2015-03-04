@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  
+  <link rel="stylesheet" href="css/themes/psjc.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <title>Parroquia San Juan de la Cruz</title>
+  
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/assets/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/assets/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/assets/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/assets/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/assets/favicon.ico">
+  
+  <script>
+    function addLeadingChars(string, nrOfChars, leadingChar) {
+	  string = string + '';
+	  return Array(Math.max(0, (nrOfChars || 2) - string.length + 1)).join(leadingChar || '0') + string;
+	}
+
+    var date1 = new Date();
+	var year = date1.getFullYear();
+	var month = ("0" + (date1.getMonth() + 1)).slice(-2)
+	var date = ("0" + date1.getDate()).slice(-2)
+	
+	var fecha = year+'-'+month+'-'+date;
+	
+	
+	/*jQuery.ajax({
+		type: "POST",
+		url: "http://www.parroquiasjc.org/app/php/get-date.php",
+		data: 'data='+JSON.stringify(fecha),
+		cache: false,
+		dataType: "text",
+		success: onSuccess
+	});*/
+  </script>
+  
+</head>
+
+<body>
+  <!-- Home -->
+  <div data-role="page" id="home" data-theme="c">
+    <!-- header -->
+	<div data-role="header">
+	  <h1>Parroquia San Juan de la Cruz</h1>
+	</div>
+	<!-- /header -->
+	
+	<!-- navbar -->
+	<div data-role="navbar" data-iconpos="left">
+	  <ul>
+        <li><a href="#palabra" data-icon="comment">Palabra diaria</a></li>
+        <li><a href="#horarios" data-icon="clock">Horarios</a></li>
+        <li><a href="#contacto" data-icon="mail">Contacto</a></li>
+	  </ul>
+	</div>
+	<!-- /navbar -->
+	
+	<!-- content -->
+	<div role="main" class="ui-content">
+	  <p>Bienvenidos a nuestra aplicaci&oacute;n.</p>
+	</div>
+	<!-- /content -->
+	
+	<!-- footer -->
+	<div data-role="footer">
+	  <h4>2015 &copy; Parroquia San Juan de la Cruz.<br />Creado por <a href="http://www.adlersystems.com" target="_blank">Adler Systems</a>.</h4>
+	</div>
+	<!-- /footer -->
+  </div>
+  <!-- /Home -->
+  
+  
+  <!-- Palabra diaria -->
+  <div data-role="page" id="palabra" data-theme="c">
+	<!-- header -->
+	<div data-role="header">
+      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Home</a>
+      
+	  <h1>Parroquia San Juan de la Cruz</h1>
+	</div>
+	<!-- /header -->
+	
+	<!-- navbar -->
+	<div data-role="navbar" data-iconpos="left">
+	  <ul>
+        <li><a href="#palabra" class="ui-btn-active ui-state-persist" data-icon="comment">Palabra diaria</a></li>
+        <li><a href="#horarios" data-icon="clock">Horarios</a></li>
+        <li><a href="#contacto" data-icon="mail">Contacto</a></li>
+	  </ul>
+	</div>
+	<!-- /navbar -->
+	
+	<!-- content -->
+	<div role="main" class="ui-content" id="lecturas">
+     <script>
+	  $( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
+	  if ( status == "error" ) {
+	  var msg = "Sorry but there was an error: ";
+	  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+	  }
+	  });
+	 </script>
+
+	 <!--<script>
+	  $('#container').load('http://www.parroquiasjc.org/app/www/php/palabra-diaria.php #container');
+	 </script>-->
+	</div>
+	<!-- /content -->
+	
+	<!-- footer -->
+	<div data-role="footer">
+	  <h4>2015 &copy; Parroquia San Juan de la Cruz.<br />Creado por <a href="http://www.adlersystems.com" target="_blank">Adler Systems</a>.</h4>
+	</div>
+	<!-- /footer -->
+  </div>
+  <!-- /Palabra diaria -->
+  
+    
+  <!-- Horarios -->
+  <div data-role="page" id="horarios" data-theme="c">
+	<!-- header -->
+	<div data-role="header">
+      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Home</a>
+      
+	  <h1>Parroquia San Juan de la Cruz</h1>
+	</div>
+	<!-- /header -->
+	
+	<!-- navbar -->
+	<div data-role="navbar" data-iconpos="left">
+	  <ul>
+        <li><a href="#palabra" data-icon="comment">Palabra diaria</a></li>
+        <li><a href="#horarios" class="ui-btn-active ui-state-persist" data-icon="clock">Horarios</a></li>
+        <li><a href="#contacto" data-icon="mail">Contacto</a></li>
+	  </ul>
+	</div>
+	<!-- /navbar -->
+	
+	<!-- content -->
+	<div role="main" class="ui-content">
+      <!-- Secretaría -->
+      <div data-role="collapsible" data-theme="d">
+        <h4>Secretar&iacute;a</h4>
+        <p>
+          <strong>Lunes a Viernes:</strong> 8:30 a.m. a 12:30 p.m.; 2:00 a 5:30 p.m.
+          <br /><br />
+          <strong>S&aacute;bados:</strong> 8:00 a.m. a 1:00 p.m.
+        </p>
+      </div>
+      <!-- /Secretaría -->
+      
+      <!-- Misas -->
+      <div data-role="collapsible" data-theme="d">
+        <h4>Misas</h4>
+        <p>
+          <strong>Lunes a Viernes:</strong> 7:00 a.m. y 6:00 p.m.
+          <br /><br />
+          <strong>S&aacute;bados:</strong> 7:00 a.m.; 12:30 y 6:00 p.m.
+          <br /><br />
+          <strong>Domingos y d&iacute;as festivos:</strong> 7:30 y 10:00 a.m.; 5:00 y 6:30 p.m.
+        </p>
+      </div>
+      <!-- /Misas -->
+      
+      <!-- Confesiones -->
+      <div data-role="collapsible" data-theme="d">
+        <h4>Confesiones</h4>
+        <p>Las confesiones se realizan durante las Misas de fin de semana.</p>
+      </div>
+      <!-- /Confesiones -->
+      
+      <!-- Bautizos -->
+      <div data-role="collapsible" data-theme="d">
+        <h4>Bautizos comunitarios</h4>
+        <p>Los bautizos comunitarios se realizan el <strong>1er s&aacute;bado</strong> y el <strong>3er domingo</strong> de cada mes.</p>
+      </div>
+      <!-- /Bautizos -->
+	</div>
+	<!-- /content -->
+	
+	<!-- footer -->
+	<div data-role="footer">
+	  <h4>2015 &copy; Parroquia San Juan de la Cruz.<br />Creado por <a href="http://www.adlersystems.com" target="_blank">Adler Systems</a>.</h4>
+	</div>
+	<!-- /footer -->
+  </div>
+  <!-- /Horarios -->
+  
+  
+  <!-- Contacto -->
+  <div data-role="page" id="contacto" data-theme="c">
+	<!-- header -->
+	<div data-role="header">
+      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Home</a>
+      
+	  <h1>Parroquia San Juan de la Cruz</h1>
+	</div>
+	<!-- /header -->
+	
+	<!-- navbar -->
+	<div data-role="navbar" data-iconpos="left">
+	  <ul>
+        <li><a href="#palabra" data-icon="comment">Palabra diaria</a></li>
+        <li><a href="#horarios" data-icon="clock">Horarios</a></li>
+        <li><a href="#contacto" class="ui-btn-active ui-state-persist" data-icon="mail">Contacto</a></li>
+	  </ul>
+	</div>
+	<!-- /navbar -->
+	
+	<!-- content -->
+	<div role="main" class="ui-content">
+      <h2>Detalles de contacto</h2>
+      <ul data-role="listview" data-inset="true">
+        <li><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
+        <li><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
+        <li><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
+      </ul>
+      
+      <p>&nbsp;</p>
+      
+      <h2>Formulario de contacto</h2>
+      <form data-parsley-validate method="post" action="php/mail.php" data-ajax="false">
+        <ul data-role="listview" data-inset="true">
+          <li>
+            Nombre: <input type="text" id="name" name="name" value="" placeholder="Nombre"><br>
+            E-mail: <input type="email" id="email" name="email" value="" placeholder="Email"><br>
+            Mensaje:<br>
+            <textarea style="height:100px;" id="comments" name="comments" placeholder="Digite su mensaje..." required></textarea> 
+            <br />
+            <input type="submit" data-inline="true" value="Enviar" name="submit">
+          </li>
+        </ul>
+      </form>
+	</div>
+	<!-- /content -->
+	
+	<!-- footer -->
+	<div data-role="footer">
+	  <h4>2015 &copy; Parroquia San Juan de la Cruz.<br />Creado por <a href="http://www.adlersystems.com" target="_blank">Adler Systems</a>.</h4>
+	</div>
+	<!-- /footer -->
+  </div>
+  <!-- /Contacto -->
+  
+  <!-- JS -->
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+	app.initialize();
+  </script>
+</body>
+</html>
