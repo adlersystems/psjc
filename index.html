@@ -73,9 +73,9 @@
         
         <div class="ui-block-b"><a href="#horarios" class="ui-btn ui-input-btn ui-icon-clock ui-btn-icon-top ui-corner-all ui-shadow">Horarios</a></div>
         
-        <div class="ui-block-a"><a href="#map-page" class="ui-btn ui-input-btn ui-icon-location ui-btn-icon-top ui-corner-all ui-shadow">Ubicaci&oacute;n</a></div>
+        <div class="ui-block-a"><a href="#avisos" class="ui-btn ui-input-btn ui-icon-info ui-btn-icon-top ui-corner-all ui-shadow">Avisos</a></div>
         
-        <div class="ui-block-b"><a href="#contacto" class="ui-btn ui-input-btn ui-icon-mail ui-btn-icon-top ui-corner-all ui-shadow">Contacto</a></div>
+        <div class="ui-block-b"><a href="#map-page" class="ui-btn ui-input-btn ui-icon-mail ui-btn-icon-top ui-corner-all ui-shadow">Contacto</a></div>
       </div>
 	</div>
 	<!-- /content -->
@@ -87,7 +87,6 @@
 	<!-- /footer -->
   </div>
   <!-- /Home -->
-  
   
   <!-- Palabra diaria -->
   <div data-role="page" id="palabra" data-theme="e">
@@ -109,10 +108,6 @@
 	  }
 	  });
 	 </script>
-
-	 <!--<script>
-	  $('#container').load('http://www.parroquiasjc.org/app/www/php/palabra-diaria.php #container');
-	 </script>-->
 	</div>
 	<!-- /content -->
 	
@@ -124,12 +119,11 @@
   </div>
   <!-- /Palabra diaria -->
   
-    
   <!-- Horarios -->
   <div data-role="page" id="horarios" data-theme="e">
 	<!-- header -->
 	<div data-role="header">
-      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Home</a>
+      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Inicio</a>
       
 	  <h1>Parroquia<br />San Juan de la Cruz</h1>
 	</div>
@@ -185,25 +179,28 @@
   </div>
   <!-- /Horarios -->
   
-  <!-- Ubicación -->
-  <div data-url="map-page" data-role="page" id="map-page" data-theme="e">
+  <!-- Avisos -->
+  <div data-role="page" id="avisos" data-theme="e">
     <!-- header -->
 	<div data-role="header">
-      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Home</a>
+      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Inicio</a>
       
 	  <h1>Parroquia<br />San Juan de la Cruz</h1>
 	</div>
 	<!-- /header -->
     
     <!-- content -->
-	<div role="main" class="ui-content">
+	<div role="main" class="ui-content" id="noticias">
       <ul data-role="listview" data-inset="true">
-        <li title="Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador."><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
+        <script>
+		  $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
+		  if ( status == "error" ) {
+		  var msg = "Sorry but there was an error: ";
+		  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+		  }
+		  });
+		</script>
       </ul>
-      
-      <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
-        <div id="map-canvas" style="height:350px;"></div>
-      </div>
 	</div>
 	<!-- /content -->
     
@@ -213,13 +210,13 @@
 	</div>
 	<!-- /footer -->
   </div>
-  <!-- /Ubicación -->
+  <!-- /Avisos -->
   
   <!-- Contacto -->
-  <div data-role="page" id="contacto" data-theme="e">
+  <div data-url="map-page" data-role="page" id="map-page" data-theme="e">
 	<!-- header -->
 	<div data-role="header">
-      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Home</a>
+      <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Inicio</a>
       
 	  <h1>Parroquia<br />San Juan de la Cruz</h1>
 	</div>
@@ -231,8 +228,12 @@
       <ul data-role="listview" data-inset="true">
         <li title="Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador."><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
         <li title="+503 2242-7582"><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
-        <li title="info@parroquiasjc.org"><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
+        <li title="info@parroquiasjc.org"><a href=""><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</a></li>
       </ul>
+      
+      <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+        <div id="map-canvas" style="height:350px;"></div>
+      </div>
       
       <p>&nbsp;</p>
       
@@ -255,12 +256,7 @@
   
   <!-- JS -->
   <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
-  
-  <script type="text/javascript">
-	app.initialize();
-  </script>
   
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </body>
