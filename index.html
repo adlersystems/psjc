@@ -24,30 +24,6 @@
   <link rel="shortcut icon" href="img/assets/favicon.ico">
   
   <script>
-    function addLeadingChars(string, nrOfChars, leadingChar) {
-	  string = string + '';
-	  return Array(Math.max(0, (nrOfChars || 2) - string.length + 1)).join(leadingChar || '0') + string;
-	}
-
-    var date1 = new Date();
-	var year = date1.getFullYear();
-	var month = ("0" + (date1.getMonth() + 1)).slice(-2)
-	var date = ("0" + date1.getDate()).slice(-2)
-	
-	var fecha = year+'-'+month+'-'+date;
-	
-	
-	/*jQuery.ajax({
-		type: "POST",
-		url: "http://www.parroquiasjc.org/app/php/get-date.php",
-		data: 'data='+JSON.stringify(fecha),
-		cache: false,
-		dataType: "text",
-		success: onSuccess
-	});*/
-	
-	////////////////////////////////////////////////////////////
-	
 	$('#map_canvas').gmap().bind('init', function(ev, map) {
 	$('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
 		$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
