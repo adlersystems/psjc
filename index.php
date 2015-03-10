@@ -1,3 +1,12 @@
+<?php
+  include("php/connect.php");
+  
+  $fecha = date("Y-m-d");
+  
+  $query = "SELECT * FROM palabra where date_format(fecha, '%Y-%m-%d') = '$fecha'";
+  $result = mysqli_query($link, $query);
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -100,14 +109,7 @@
 	
 	<!-- content -->
 	<div role="main" class="ui-content" id="lecturas">
-     <script>
-	  $( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-	  if ( status == "error" ) {
-	  var msg = "Sorry but there was an error: ";
-	  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-	  }
-	  });
-	 </script>
+     <?php include("php/palabra-diaria.php"); ?>
 	</div>
 	<!-- /content -->
 	
@@ -191,14 +193,9 @@
     
     <!-- content -->
 	<div role="main" class="ui-content" id="noticias">
-	  <script>
-        $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-        if ( status == "error" ) {
-        var msg = "Sorry but there was an error: ";
-        $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-        }
-        });
-      </script>
+      <ul data-role="listview" data-inset="true">
+        <?php include("php/avisos.php"); ?>
+      </ul>
 	</div>
 	<!-- /content -->
     
@@ -226,7 +223,7 @@
       <ul data-role="listview" data-inset="true">
         <li title="Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador."><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
         <li title="+503 2242-7582"><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
-        <li title="info@parroquiasjc.org"><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
+        <li title="info@parroquiasjc.org"><a href=""><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</a></li>
       </ul>
       
       <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
