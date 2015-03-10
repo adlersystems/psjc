@@ -191,16 +191,14 @@
     
     <!-- content -->
 	<div role="main" class="ui-content" id="noticias">
-      <ul data-role="listview" data-inset="true">
-        <script>
-		  $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-		  if ( status == "error" ) {
-		  var msg = "Sorry but there was an error: ";
-		  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-		  }
-		  });
-		</script>
-      </ul>
+	  <script>
+        $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
+        if ( status == "error" ) {
+        var msg = "Sorry but there was an error: ";
+        $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+        }
+        });
+      </script>
 	</div>
 	<!-- /content -->
     
