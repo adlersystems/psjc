@@ -88,6 +88,7 @@
 		}
 	  });
 	 </script>
+     <div id="error"></div>
 	</div>
 	<!-- /content -->
 	
@@ -175,10 +176,11 @@
         $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
 		  if ( status == "error" ) {
 			var msg = "Sorry but there was an error: ";
-		  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+		  $( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
 		  }
         });
       </script>
+      <div id="error2"></div>
 	</div>
 	<!-- /content -->
     
