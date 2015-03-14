@@ -14,7 +14,7 @@ function onDeviceReady(){
 		url: "http://www.parroquiasjc.org/app/php/update.php",
 		dataType: "json",
 		success: function(data) {
-		  if (data == 1) {
+		  if (data.var == 1) {
 			  $("#updateHeader").html('<a href="http://www.parroquiasjc.org/app/update.html" data-icon="alert" data-transition="fade">Actualizaci&oacute;n disponible</a>  <h1>Parroquia<br />San Juan de la Cruz</h1>');
 		  }
 		  else {
