@@ -24,11 +24,7 @@
   <link rel="shortcut icon" href="img/assets/favicon.png">
   
   <script>
-	$('#map_canvas').gmap().bind('init', function(ev, map) {
-	  $('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
-		$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
-	  });
-	});
+	
 	
 	/////////////////////////////////////////////////////////
   </script>
@@ -217,9 +213,7 @@
         <li title="info@parroquiasjc.org"><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
       </ul>
       
-      <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
-        <div id="map-canvas" style="height:350px;"></div>
-      </div>
+      
       
       <p>&nbsp;</p>
       
@@ -241,9 +235,7 @@
   <!-- /Contacto -->
   
   <!-- JS -->
-  <script type="text/javascript" src="js/custom.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   
-  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </body>
 </html>
