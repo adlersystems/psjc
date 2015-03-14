@@ -37,12 +37,10 @@
     <!-- header -->
 	<div data-role="header" id="update">
       <script>
-	  $( "#update" ).load( "http://www.parroquiasjc.org/app/php/update.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-		  var msg = "Sorry but there was an error: ";
-		$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
+	  jQuery(document).ready(function(){
+		  jQuery("#update").load("http://www.parroquiasjc.org/app/php/update.php");
 	  });
+   
 	 </script>
      <div id="error3"></div>
 	</div>
@@ -212,8 +210,6 @@
         <li title="+503 2242-7582"><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
         <li title="info@parroquiasjc.org"><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
       </ul>
-      
-      
       
       <p>&nbsp;</p>
       
