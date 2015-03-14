@@ -41,11 +41,14 @@
     <!-- header -->
 	<div data-role="header" id="update">
       <script>
-	  $.get( "http://parroquiasjc.org/app/php/update.php", function( data ) {
-		$( "#update" ).html( data );
-		alert( "Load was performed." );
+	  $( "#update" ).load( "http://www.parroquiasjc.org/app/php/update.php", function( response, status, xhr ) {
+		if ( status == "error" ) {
+		  var msg = "Sorry but there was an error: ";
+		$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
+		}
 	  });
 	 </script>
+     <div id="error3"></div>
 	</div>
 	<!-- /header -->
 	
@@ -91,6 +94,7 @@
 		}
 	  });
 	 </script>
+     <div id="error"></div>
 	</div>
 	<!-- /content -->
 	
@@ -178,10 +182,11 @@
         $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
 		  if ( status == "error" ) {
 			var msg = "Sorry but there was an error: ";
-		  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+		  $( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
 		  }
         });
       </script>
+      <div id="error2"></div>
 	</div>
 	<!-- /content -->
     
