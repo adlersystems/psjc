@@ -40,14 +40,9 @@
   <div data-role="page" id="home" data-theme="e">
     <!-- header -->
 	<div data-role="header" id="updateHeader">
-      <script>
-	  $( "#updateHeader" ).html( "http://www.parroquiasjc.org/app/php/update.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-		  var msg = "Sorry but there was an error: ";
-		$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
-	  });
-	 </script>
+      <a href="http://www.parroquiasjc.org/app/update.html" data-icon="recycle" data-transition="fade" data-iconpos="notext" class="ui-btn-right">Actualizar</a>
+      
+      <h1>Parroquia<br />San Juan de la Cruz</h1>
 	</div>
 	<!-- /header -->
 	
