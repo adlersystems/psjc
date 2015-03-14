@@ -8,7 +8,7 @@ function onBodyLoad() {
 /* begin onDeviceReady */
 function onDeviceReady(){
 	
-	/* begin Check for updates */
+	/* begin Check for updates 
 	$.ajax({
 		type: "GET",
 		url: "http://www.parroquiasjc.org/app/php/update.php",
