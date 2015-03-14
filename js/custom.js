@@ -1,5 +1,39 @@
 // JavaScript Document
 
+
+/* 
+* carga inicial de la app
+*/
+function onBodyLoad() {    
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady(){
+	
+	/* Botón Enviar Mail */
+	$("#btn_enviar_mail").click(function(e){
+		sendMail();
+	});
+} // end function onDeviceReady
+
+////////////////////////////////////////////////////////////////////////////
+
+function showUpdateBtn () {
+	var selector = $("#btn_update div");
+	selector.append('<a href="http://www.parroquiasjc.org/app/update.html" data-icon="alert" data-transition="fade">Actualizaci&oacute;n disponible</a>');
+}
+
+/*
+* envío de emails
+*/
+function sendMail(){
+	var subject = $("#ti_asunto").val();
+	var body = $("#ta_mensaje").val();
+	window.location.href = "mailto:"+$.registro.email+"?subject="+subject+"&body="+body;
+}
+
+////////////////////////////////////////////////////////////////////////////
+
 /*
  * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html
  * Geolocation documentation: http://dev.w3.org/geo/api/spec-source.html
