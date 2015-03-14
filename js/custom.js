@@ -7,7 +7,7 @@ function onBodyLoad() {
 
 /* begin onDeviceReady */
 function onDeviceReady(){
-	/* begin Check for updates
+	/* begin Check for updates */
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
 		fileSystem.root.getFile('download/filename.apk', {
 			create: true, 
@@ -43,7 +43,7 @@ function onDeviceReady(){
 	
 	/*
 	 * Uses the filetransfer plugin
-	 */
+	 
 	function downloadApkAndroid(data) {
 		var fileURL = "http://www.parroquiasjc.org/app/apk/PSJCApp-debug.apk";
 	
@@ -70,14 +70,15 @@ function onDeviceReady(){
 			}
 		);
 	}
+	
 	/*
 	 * Uses the borismus webintent plugin
-	 */
+	 
 	function promptForUpdateAndroid(entry) {
 		window.plugins.webintent.startActivity({
-				action: window.plugins.webintent.ACTION_VIEW,
-				url: entry.toURL(),
-				type: 'application/vnd.android.package-archive'
+			action: window.plugins.webintent.ACTION_VIEW,
+			url: entry.toURL(),
+			type: 'application/vnd.android.package-archive'
 			},
 			function () {
 			},
