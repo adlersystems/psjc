@@ -39,10 +39,17 @@
   <!-- Home -->
   <div data-role="page" id="home" data-theme="e">
     <!-- header -->
-	<div data-role="header" id="updateHeader">
-      <a href="http://www.parroquiasjc.org/app/update.html" data-icon="recycle" data-transition="fade" data-iconpos="notext" class="ui-btn-right">Actualizar</a>
+	<div data-role="header" id="update">
+      <script>
+	  $( "#update" ).load( "http://www.parroquiasjc.org/app/php/update.php", function( response, status, xhr ) {
+		if ( status == "error" ) {
+		  var msg = "Sorry but there was an error: ";
+		$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+		}
+	  });
+	 </script>
       
-      <h1>Parroquia<br />San Juan de la Cruz</h1>
+	  <h1>Parroquia<br />San Juan de la Cruz</h1>
 	</div>
 	<!-- /header -->
 	
@@ -88,7 +95,6 @@
 		}
 	  });
 	 </script>
-     <div id="error"></div>
 	</div>
 	<!-- /content -->
 	
@@ -176,11 +182,10 @@
         $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
 		  if ( status == "error" ) {
 			var msg = "Sorry but there was an error: ";
-		  $( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
+		  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
 		  }
         });
       </script>
-      <div id="error2"></div>
 	</div>
 	<!-- /content -->
     
@@ -206,9 +211,9 @@
 	<div role="main" class="ui-content">
       <h2>Detalles de contacto</h2>
       <ul data-role="listview" data-inset="true">
-        <li><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
-        <li><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
-        <li><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
+        <li title="Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador."><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
+        <li title="+503 2242-7582"><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
+        <li title="info@parroquiasjc.org"><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
       </ul>
       
       <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
