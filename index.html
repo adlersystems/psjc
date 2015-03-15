@@ -21,21 +21,48 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/assets/apple-touch-icon-114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/assets/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/assets/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="img/assets/favicon.png">
+  <link rel="shortcut icon" href="img/assets/favicon.ico">
   
   <script>
+    function addLeadingChars(string, nrOfChars, leadingChar) {
+	  string = string + '';
+	  return Array(Math.max(0, (nrOfChars || 2) - string.length + 1)).join(leadingChar || '0') + string;
+	}
+
+    var date1 = new Date();
+	var year = date1.getFullYear();
+	var month = ("0" + (date1.getMonth() + 1)).slice(-2)
+	var date = ("0" + date1.getDate()).slice(-2)
+	
+	var fecha = year+'-'+month+'-'+date;
 	
 	
-	/////////////////////////////////////////////////////////
+	/*jQuery.ajax({
+		type: "POST",
+		url: "http://www.parroquiasjc.org/app/php/get-date.php",
+		data: 'data='+JSON.stringify(fecha),
+		cache: false,
+		dataType: "text",
+		success: onSuccess
+	});*/
+	
+	////////////////////////////////////////////////////////////
+	
+	$('#map_canvas').gmap().bind('init', function(ev, map) {
+	$('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+		$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+	});
+});
   </script>
   
 </head>
 
-<body onload="onBodyLoad()">
+<body>
   <!-- Home -->
   <div data-role="page" id="home" data-theme="e">
     <!-- header -->
-	<div data-role="header" id="updateHeader">
+	<div data-role="header">
+	  <h1>Parroquia<br />San Juan de la Cruz</h1>
 	</div>
 	<!-- /header -->
 	
@@ -75,13 +102,12 @@
 	<div role="main" class="ui-content" id="lecturas">
      <script>
 	  $( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-		  var msg = "Sorry but there was an error: ";
-		$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
+	  if ( status == "error" ) {
+	  var msg = "Sorry but there was an error: ";
+	  $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+	  }
 	  });
 	 </script>
-     <div id="error"></div>
 	</div>
 	<!-- /content -->
 	
@@ -167,13 +193,12 @@
 	<div role="main" class="ui-content" id="noticias">
 	  <script>
         $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-		  if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-		  $( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-		  }
+        if ( status == "error" ) {
+        var msg = "Sorry but there was an error: ";
+        $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+        }
         });
       </script>
-      <div id="error2"></div>
 	</div>
 	<!-- /content -->
     
@@ -204,6 +229,10 @@
         <li title="info@parroquiasjc.org"><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
       </ul>
       
+      <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+        <div id="map-canvas" style="height:350px;"></div>
+      </div>
+      
       <p>&nbsp;</p>
       
       <h2>S&iacute;guenos en...</h2>
@@ -227,5 +256,6 @@
   <script type="text/javascript" src="js/custom.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </body>
 </html>
