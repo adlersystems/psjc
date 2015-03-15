@@ -23,25 +23,14 @@
   <link rel="apple-touch-icon-precomposed" href="img/assets/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/assets/favicon.png">
   
-  <script>
-	
-	
-	/////////////////////////////////////////////////////////
-  </script>
-  
 </head>
 
-<body>
+<body onload="onBodyLoad()">
   <!-- Home -->
   <div data-role="page" id="home" data-theme="e">
     <!-- header -->
 	<div data-role="header" id="update">
-      <script>
-	  jQuery(document).ready(function(){
-		  jQuery("#update").load("http://www.parroquiasjc.org/app/php/update.php");
-	  });
-   
-	 </script>
+      
      <div id="error3"></div>
 	</div>
 	<!-- /header -->
@@ -80,14 +69,7 @@
 	
 	<!-- content -->
 	<div role="main" class="ui-content" id="lecturas">
-     <script>
-	  $( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-		  var msg = "Sorry but there was an error: ";
-		$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
-	  });
-	 </script>
+     
      <div id="error"></div>
 	</div>
 	<!-- /content -->
@@ -172,14 +154,7 @@
     
     <!-- content -->
 	<div role="main" class="ui-content" id="noticias">
-	  <script>
-        $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-		  if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-		  $( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-		  }
-        });
-      </script>
+	  
       <div id="error2"></div>
 	</div>
 	<!-- /content -->
@@ -231,7 +206,9 @@
   <!-- /Contacto -->
   
   <!-- JS -->
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="phonegap.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!--<script type="text/javascript" src="js/index.js"></script>-->
   
 </body>
 </html>
