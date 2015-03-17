@@ -1,9 +1,44 @@
 // JavaScript Document
 
+/* carga inicial de la app */
+function onBodyLoad() {    
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+// begin onDeviceReady
+function onDeviceReady(){
+	
+	/* vista lecturas */
+	$(document).on("pagebeforeshow", "#palabra", function(){
+		$( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
+			if ( status == "error" ) {
+				var msg = "Sorry but there was an error: ";
+				$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
+			}
+		});
+	});
+	
+	/* vista avisos */
+	$(document).on("pagebeforeshow", "#avisos", function(){
+		$( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
+			if ( status == "error" ) {
+				var msg = "Sorry but there was an error: ";
+				$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
+			}
+		});
+	});
+} // end onDeviceReady
+
+
+
+
+
+
+
 /*
  * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html
  * Geolocation documentation: http://dev.w3.org/geo/api/spec-source.html
- */
+ 
 $( document ).on( "pagecreate", "#map-page", function() {
     var defaultLatLng = new google.maps.LatLng(13.6436097, -89.2803691);  // Default to Hollywood, CA when no geolocation support
     
@@ -36,6 +71,6 @@ $( document ).on( "pagecreate", "#map-page", function() {
             title: "Greetings!"
         });
     }
-});
+});*/
 
 /* AS framework - www.adlersystems.com */
