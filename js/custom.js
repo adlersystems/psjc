@@ -9,24 +9,23 @@ function onBodyLoad() {
 function onDeviceReady(){
 	
 	/* vista lecturas */
-	$(document).on("pagebeforeshow", "#palabra", function(){
-		$( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-			if ( status == "error" ) {
-				var msg = "Sorry but there was an error: ";
-				$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-			}
-		});
+	$( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
+		if ( status == "error" ) {
+			var msg = "Sorry but there was an error: ";
+			$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
+		}
 	});
+	/* /vista lecturas */
 	
 	/* vista avisos */
-	$(document).on("pagebeforeshow", "#avisos", function(){
-		$( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-			if ( status == "error" ) {
-				var msg = "Sorry but there was an error: ";
-				$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
-			}
-		});
+	$( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
+		if ( status == "error" ) {
+			var msg = "Sorry but there was an error: ";
+			$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
+		}
 	});
+	/* /vista avisos */
+	
 } // end onDeviceReady
 
 
