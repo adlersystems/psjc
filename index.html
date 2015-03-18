@@ -6,7 +6,6 @@
   
   <script src="js/jquery-2.1.3.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
   
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
@@ -24,9 +23,21 @@
   <link rel="apple-touch-icon-precomposed" href="img/assets/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/assets/favicon.png">
   
+  
+  <script type="text/javascript">
+  function MM_callJS(jsStr) { //v2.0
+	return eval(jsStr)
+  }
+  
+  /* enviando mails */
+  function sendMail(){
+	  window.location.href = "mailto: webmaster@parroquiasjc.org";
+  }
+  </script>
+  
 </head>
 
-<body onload="onBodyLoad()">
+<body>
   <!-- Home -->
   <div data-role="page" id="home" data-theme="e">
     <!-- header -->
@@ -207,7 +218,7 @@
       <ul data-role="listview" data-inset="true">
         <li><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
         <li><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
-        <li><a href="" id="btnEmail">info@parroquiasjc.org</a></li>
+        <li><a href="" id="btnEmail" onclick="MM_callJS('sendMail()')">info@parroquiasjc.org</a></li>
       </ul>
       
       <p>&nbsp;</p>
