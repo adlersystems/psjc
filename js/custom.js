@@ -5,34 +5,16 @@ function onBodyLoad() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
 
-// begin onDeviceReady
 function onDeviceReady(){
-	
-	/* vista lecturas */
-	$( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-			$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
+	$("#btnEmail").click(function(e){
+		sendMail();
 	});
-	/* /vista lecturas */
-	
-	/* vista avisos */
-	$( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-			$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
-	});
-	/* /vista avisos */
-	
-} // end onDeviceReady
+}
 
-
-
-
-
-
+/* enviando mails */
+function sendMail(){
+	window.location.href = "mailto: webmaster@parroquiasjc.org";
+}
 
 /*
  * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html

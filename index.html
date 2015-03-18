@@ -6,6 +6,7 @@
   
   <script src="js/jquery-2.1.3.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
   
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
@@ -25,7 +26,7 @@
   
 </head>
 
-<body>
+<body onload="onBodyLoad()">
   <!-- Home -->
   <div data-role="page" id="home" data-theme="e">
     <!-- header -->
@@ -40,10 +41,10 @@
         <div id="updates" style="text-align:center;"></div>
 		<script>
           $( "#updates" ).load( "http://www.parroquiasjc.org/app/php/update.php", function( response, status, xhr ) {
-          if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-			$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-          }
+			if ( status == "error" ) {
+			  var msg1 = "Sorry but there was an error: ";
+			  $( "#error1" ).html( msg1 + xhr.status + " " + xhr.statusText );
+			}
           });
         </script>
         
@@ -53,7 +54,7 @@
         
         <div class="ui-block-a"><a href="#avisos" class="ui-btn ui-input-btn ui-icon-info ui-btn-icon-top ui-corner-all ui-shadow">Avisos</a></div>
         
-        <div class="ui-block-b"><a href="#map-page" class="ui-btn ui-input-btn ui-icon-mail ui-btn-icon-top ui-corner-all ui-shadow">Contacto</a></div>
+        <div class="ui-block-b"><a href="#contacto" class="ui-btn ui-input-btn ui-icon-mail ui-btn-icon-top ui-corner-all ui-shadow">Contacto</a></div>
       </div>
 	</div>
 	<!-- /content -->
@@ -80,10 +81,10 @@
 	<div role="main" class="ui-content" id="lecturas">
      <script>
 	  $( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-	  if ( status == "error" ) {
-	  var msg = "Sorry but there was an error: ";
-	  $( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-	  }
+		if ( status == "error" ) {
+		  var msg2 = "Error conectando al servidor. Por favor, verifique su conexión a internet.";
+		  $( "#error2" ).html( msg2 );
+		}
 	  });
 	 </script>
      <div id="error2"></div>
@@ -172,10 +173,10 @@
 	<div role="main" class="ui-content" id="noticias">
 	  <script>
         $( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-        if ( status == "error" ) {
-        var msg = "Sorry but there was an error: ";
-        $( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
-        }
+		  if ( status == "error" ) {
+			var msg3 = "Error conectando al servidor.  Por favor, verifique su conexión a internet.";
+			$( "#error3" ).html( msg3 );
+		  }
         });
       </script>
       <div id="error3"></div>
@@ -191,7 +192,7 @@
   <!-- /Avisos -->
   
   <!-- Contacto -->
-  <div data-url="map-page" data-role="page" id="map-page" data-theme="e">
+  <div data-role="page" id="contacto" data-theme="e">
 	<!-- header -->
 	<div data-role="header">
       <a href="#home" data-icon="home" data-iconpos="notext" data-transition="fade">Inicio</a>
@@ -206,7 +207,7 @@
       <ul data-role="listview" data-inset="true">
         <li><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
         <li><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
-        <li><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
+        <li><a href="" id="btnEmail">info@parroquiasjc.org</a></li>
       </ul>
       
       <p>&nbsp;</p>
