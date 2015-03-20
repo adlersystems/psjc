@@ -41,11 +41,20 @@
 <body>
   <script>
   /* preloader */
-  $.oPageLoader({
-	progressBarColor: '#57240F',
-	fadeOutTime: 1500
-  }
-	);
+  $(function(){
+	$('body').oLoader({
+	  wholeWindow: true,
+	  backgroundColor:'#000',
+	  fadeLevel: 0.8,
+	  fadeInTime: 0,
+	  fadeOutTime: 500,
+	  image: 'img/ownageLoader/loader4.gif'
+	});
+	
+	$(window).load(function(){
+	  $('body').oLoader('hide');
+	});
+  });
   </script>
   
   <!-- Home -->
