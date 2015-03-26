@@ -1,0 +1,30 @@
+/* CSS Document */
+
+.ar_titulo {
+	margin:15px 0;
+	padding:10px 0;
+	border-bottom:1px #036 solid;
+	line-height:30px;
+	color:#1C4367;
+	font-size:19px
+}
+
+.texto_palabra {
+	border-bottom:1px solid #3e7999;
+	margin:15px; padding:5px;
+}
+
+.texto_palabra ul {
+	margin:5px;
+	padding:5px;
+}
+
+i {
+	display:inline-block;
+}
+
+#map-page, #map-canvas {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
