@@ -10,10 +10,13 @@
 	Custom Mobile App for Parroquia San Juan de la Cruz.
 	</description>
 	
-	<author href="https://adlersystems.com" email="info@adlersystems.com">
+	<author href="http://adlersystems.com" email="info@adlersystems.com">
 	Adler Systems
 	</author>
 	
+	<gap:plugin name="org.apache.cordova.device"/>
+	<gap:plugin name="org.apache.cordova.dialogs" />
+
     <icon src="icon.png" />
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
