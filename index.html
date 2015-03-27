@@ -39,7 +39,7 @@
       <div class="ui-grid-a ui-responsive">
         <div id="updates" style="text-align:center;"></div>
 		<script>
-          $( "#updates" ).load( "http://www.parroquiasjc.org/app/php/download.php", function( response, status, xhr ) {
+          $( "#updates" ).load( "http://www.parroquiasjc.org/app/php/update.php", function( response, status, xhr ) {
           if ( status == "error" ) {
 			var msg = "Sorry but there was an error: ";
 			$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
