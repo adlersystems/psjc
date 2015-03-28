@@ -23,6 +23,16 @@
   <link rel="apple-touch-icon-precomposed" href="img/assets/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/assets/favicon.png">
   
+  <script type="text/javascript">
+  function MM_callJS(jsStr) { //v2.0
+	return eval(jsStr)
+  }
+  
+  /* enviando mails */
+  function sendMail(){
+	  window.location.href = "mailto:info@parroquiasjc.org";
+  }
+  </script>
 </head>
 
 <body>
@@ -206,7 +216,7 @@
       <ul data-role="listview" data-inset="true">
         <li><i class="ui-icon-location ui-btn-icon-left"></i> Res. Via del Mar, Km. 11 1/2 a La Libertad, El Salvador.</li>
         <li><i class="ui-icon-phone ui-btn-icon-left"></i> +503 2242-7582</li>
-        <li><i class="ui-icon-mail ui-btn-icon-left"></i> info@parroquiasjc.org</li>
+        <li><button onclick="MM_callJS('sendMail')" data-icon="forward" data-iconpos="left">info@parroquiasjc.org</button></li>
       </ul>
       
       <p>&nbsp;</p>
