@@ -1,33 +1,25 @@
 // JavaScript Document
 
+function onBackbutton() {
+	// Exit if user wants to go back with button from home page
+	if(!window.location.hash || window.location.hash == 'home') {
+		console.log("Exiting app");
+        navigator.app.exitApp();
+	}
+}
+
+
+
 /* 
 * carga inicial de la app
 */
-function onBodyLoad() {    
-	document.addEventListener("deviceready", onDeviceReady, false);
+var onDeviceReady = function() {
+	document.addEventListener("backbutton", onBackbutton, false);
 }
 
-function onDeviceReady(){
-	/* Carga de las Lecturas */
-	$( "#lecturas" ).load( "http://www.parroquiasjc.org/app/php/palabra-diaria.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-			$( "#error2" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
-	});
-	
-	/* Carga de las Noticias */
-	$( "#noticias" ).load( "http://www.parroquiasjc.org/app/php/avisos.php", function( response, status, xhr ) {
-		if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-			$( "#error3" ).html( msg + xhr.status + " " + xhr.statusText );
-		}
-	});
-	
-	/* Botón Enviar Mail */
-	function sendMail(){
-		window.location.href = "mailto:info@parroquiasjc.org";
-	}
+
+function init() {
+    document.addEventListener("deviceready", onDeviceReady, true);
 }
 
 
