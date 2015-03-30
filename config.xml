@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.adlersystems.psjc"
+    version   = "1.0.0">
+
+	<name>PSJC App</name>
+	
+	<version>1.0.0</version>
+	
+	<description>
+	Custom Mobile App for Parroquia San Juan de la Cruz.
+	</description>
+	
+	<author href="https://adlersystems.com" email="info@adlersystems.com">
+	Adler Systems
+	</author>
+	
+    <icon src="icon.png" />
+    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/screen/android/screen-xhdpi-portrait.png" />
+	
+	<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		package="com.example.android.basiccontactables"
+		android:versionCode="1"
+		android:versionName="1.0" >
+	
+	  <uses-permission android:name="android.permission.INTERNET" />
+	  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	</manifest>
+</widget>
